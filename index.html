@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Factor Humano 2026 · Evento de ciberseguridad. Jueves 26 de noviembre, Centro Cultural de Lezama. Presencial y en vivo.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Factor Humano 2026 · Lezama">
+<meta property="og:description" content="Los ataques de hoy empiezan engañando a una persona. Jueves 26 de noviembre, 18:00 h, Centro Cultural de Lezama. También en vivo.">
+<meta property="og:image" content="/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.png">
+<title>Factor Humano 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@700;800;900&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: columna editorial de 1120px; secciones como bandas separadas por filetes gruesos, datos en cajas marcadas, igual que la invitación impresa */
+:root{
+  --bg:#f3eee8; --surface:#fbf8f4; --ink:#141010; --ink-2:#3a302d; --muted:#6a605b;
+  --accent:#d62b1f; --accent-ink:#ffffff; --line:rgba(20,16,16,.18); --line-strong:#141010;
+  --invert-bg:#141010; --invert-fg:#f3eee8; --invert-muted:#b9aea8; --invert-accent:#ff6a4d;
+  --f-display:"Inter Tight","Inter",system-ui,sans-serif;
+  --f-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#121010; --surface:#1b1817; --ink:#f1ebe5; --ink-2:#d6cdc7; --muted:#a0958f; --accent:#ff5a47; --accent-ink:#140808;
+  --line:rgba(241,235,229,.16); --line-strong:#f1ebe5; --invert-bg:#f1ebe5; --invert-fg:#141010; --invert-muted:#5f5550; --invert-accent:#c42a1e; color-scheme:dark; } }
+:root[data-theme="dark"]{
+  --bg:#121010; --surface:#1b1817; --ink:#f1ebe5; --ink-2:#d6cdc7; --muted:#a0958f; --accent:#ff5a47; --accent-ink:#140808;
+  --line:rgba(241,235,229,.16); --line-strong:#f1ebe5; --invert-bg:#f1ebe5; --invert-fg:#141010; --invert-muted:#5f5550; --invert-accent:#c42a1e; color-scheme:dark; }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+.eyebrow{color:var(--accent)}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;letter-spacing:-.03em;line-height:1}
+h2{font-size:clamp(1.9rem,4.4vw,2.9rem);font-weight:900}
+h2 em,h1 em{font-style:normal;color:var(--accent)}
+p{margin:0}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+/* barra */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:2px solid var(--line-strong)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:900;font-size:1.05rem;letter-spacing:-.02em;text-decoration:none}
+.brand i{width:10px;height:10px;background:var(--accent);display:block}
+.nav{display:flex;gap:18px;flex-wrap:wrap}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav a:hover{color:var(--ink)}
+.nav a.cta{color:var(--accent)}
+@media (max-width:760px){.nav a:not(.cta){display:none}}
+
+/* hero */
+.hero{padding-block:56px 40px;border-bottom:2px solid var(--line-strong)}
+.hero h1{font-size:clamp(3.4rem,11vw,8.4rem);font-weight:900;letter-spacing:-.05em;line-height:.88;margin-top:14px}
+.hero .deck{font-family:var(--f-display);font-weight:800;font-size:clamp(1.25rem,2.6vw,1.75rem);letter-spacing:-.02em;line-height:1.15;margin-top:18px;max-width:30ch}
+.hero .deck em{font-style:normal;color:var(--accent)}
+#wave{display:block;width:100%;height:84px;margin-top:28px}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:32px;margin-top:28px;align-items:start}
+.hero-grid > *{min-width:0}
+.lead{font-size:1.06rem;color:var(--ink-2);max-width:60ch}
+.lead b{color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--line-strong);background:var(--surface)}
+.facts > div{padding:14px 16px;min-width:0}
+.facts > div + div{border-left:1.5px solid var(--line-strong)}
+.facts .v{font-family:var(--f-display);font-weight:800;font-size:1.15rem;line-height:1.15;letter-spacing:-.015em;margin-top:6px}
+.count{display:flex;gap:0;margin-top:14px;border:1.5px solid var(--line-strong)}
+.count > div{flex:1;padding:12px 10px;text-align:center;min-width:0}
+.count > div + div{border-left:1.5px solid var(--line-strong)}
+.count .n{font-family:var(--f-display);font-weight:900;font-size:clamp(1.7rem,4vw,2.6rem);line-height:1;font-variant-numeric:tabular-nums;color:var(--accent)}
+.count .l{margin-top:6px;color:var(--muted)}
+.count-done{margin-top:14px;border:1.5px solid var(--line-strong);padding:14px 16px;font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;font-weight:700;text-decoration:none;border:1.5px solid var(--line-strong);background:transparent;color:var(--ink);cursor:pointer;font:inherit;font-weight:700}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn:hover{transform:translateY(-1px)}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.facts{grid-template-columns:1fr}.facts > div + div{border-left:0;border-top:1.5px solid var(--line-strong)}}
+
+/* secciones */
+section.s{padding-block:64px;border-bottom:2px solid var(--line-strong)}
+.s-head{display:grid;grid-template-columns:1fr 1.2fr;gap:32px;align-items:end;margin-bottom:32px}
+.s-head > *{min-width:0}
+.s-head p{color:var(--ink-2);max-width:56ch}
+@media (max-width:860px){.s-head{grid-template-columns:1fr;gap:14px}}
+
+/* programa */
+.agenda{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--line-strong);background:var(--surface)}
+.agenda > div{padding:20px 18px;min-width:0}
+.agenda > div + div{border-left:1.5px solid var(--line-strong)}
+.agenda .t{font-family:var(--f-display);font-weight:900;font-size:2rem;color:var(--accent);line-height:1;font-variant-numeric:tabular-nums}
+.agenda h3{font-size:1.1rem;font-weight:800;letter-spacing:-.01em;margin-top:12px}
+.agenda p{color:var(--ink-2);font-size:.93rem;margin-top:6px}
+.agenda .key{background:var(--invert-bg);color:var(--invert-fg)}
+.agenda .key .t{color:var(--invert-accent)}
+.agenda .key p{color:var(--invert-muted)}
+@media (max-width:860px){.agenda{grid-template-columns:1fr 1fr}.agenda > div:nth-child(3){border-left:0}.agenda > div:nth-child(n+3){border-top:1.5px solid var(--line-strong)}}
+@media (max-width:520px){.agenda{grid-template-columns:1fr}.agenda > div + div{border-left:0;border-top:1.5px solid var(--line-strong)}}
+
+/* muestra */
+.stations{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.station{border:1.5px solid var(--line-strong);background:var(--surface);padding:18px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.station .tag{color:var(--accent)}
+.station h3{font-size:1.05rem;font-weight:800;letter-spacing:-.01em;line-height:1.2}
+.station p{font-size:.9rem;color:var(--ink-2)}
+@media (max-width:1000px){.stations{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.stations{grid-template-columns:1fr}}
+
+/* temario */
+.topics{border:1.5px solid var(--line-strong);background:var(--surface)}
+.topic{display:grid;grid-template-columns:96px 1fr;border-top:1px solid var(--line)}
+.topic:first-child{border-top:0}
+.topic .n{display:flex;align-items:center;justify-content:center;font-family:var(--f-display);font-weight:900;font-size:2rem;color:var(--accent);border-right:1px solid var(--line);font-variant-numeric:tabular-nums}
+.topic .c{padding:18px 22px;min-width:0}
+.topic h3{font-size:1.15rem;font-weight:800;letter-spacing:-.01em;line-height:1.2}
+.topic p{color:var(--ink-2);font-size:.95rem;margin-top:6px;max-width:75ch}
+@media (max-width:520px){.topic{grid-template-columns:56px 1fr}.topic .n{font-size:1.4rem}.topic .c{padding:14px}}
+
+/* bloques dobles */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pair > *{min-width:0}
+.panel{border:1.5px solid var(--line-strong);background:var(--surface);padding:24px}
+.panel.inv{background:var(--invert-bg);color:var(--invert-fg);border-color:var(--invert-bg)}
+.panel.inv .eyebrow{color:var(--invert-accent)}
+.panel.inv p,.panel.inv li{color:var(--invert-muted)}
+.panel h3{font-size:1.4rem;font-weight:900;margin-top:10px;line-height:1.1}
+.panel p{color:var(--ink-2);margin-top:10px}
+.panel ul{list-style:none;margin:14px 0 0;padding:0}
+.panel li{padding:9px 0;border-top:1px dotted var(--line);font-size:.95rem;color:var(--ink-2)}
+.panel.inv li{border-top-color:rgba(127,127,127,.35)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--line-strong);margin-top:16px}
+.stats > div{padding:14px;min-width:0}
+.stats > div + div{border-left:1.5px solid var(--line-strong)}
+.stats .v{font-family:var(--f-display);font-weight:900;font-size:1.8rem;color:var(--accent);line-height:1}
+.stats .d{font-size:.82rem;color:var(--muted);margin-top:6px;line-height:1.35}
+.sealed{margin-top:16px;border:1.5px dashed var(--accent);padding:14px 16px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+.sealed b{font-family:var(--f-display);font-weight:900;font-size:1.15rem}
+@media (max-width:860px){.pair{grid-template-columns:1fr}}
+
+/* confirmar */
+.confirm{display:grid;grid-template-columns:1.2fr 1fr;gap:12px}
+.confirm > *{min-width:0}
+.phone{font-family:var(--f-display);font-weight:900;font-size:clamp(2rem,5vw,3rem);letter-spacing:-.02em;line-height:1;margin-top:14px;font-variant-numeric:tabular-nums;user-select:all}
+.email{font-family:var(--f-display);font-weight:800;font-size:clamp(1.15rem,3vw,1.7rem);letter-spacing:-.015em;line-height:1.2;margin-top:14px;overflow-wrap:anywhere;user-select:all}
+.consult{margin-top:18px;padding-top:14px;border-top:1px dotted var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:10px;color:var(--ink-2)}
+.consult b{font-family:var(--f-display);font-weight:800;font-size:1.1rem;color:var(--ink);user-select:all}
+.subject{color:var(--invert-fg);font-weight:700;margin-top:10px}
+.deadline{display:inline-block;margin-top:14px;background:var(--accent);color:var(--accent-ink);padding:6px 10px;font-weight:700}
+.copy-ok{color:var(--accent);font-weight:600;margin-left:6px}
+@media (max-width:860px){.confirm{grid-template-columns:1fr}}
+
+/* inscripción y en línea */
+.reg{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.reg > *{min-width:0}
+.reg .panel{display:flex;flex-direction:column}
+.reg .panel .actions{margin-top:auto;padding-top:18px}
+.reg ul{margin-bottom:0}
+.pending{margin-top:12px;border:1.5px dashed var(--accent);padding:12px 14px;font-size:.92rem;color:var(--ink-2)}
+.panel.inv .pending{color:var(--invert-muted)}
+.alt{margin-top:12px}
+.tz{display:grid;grid-template-columns:repeat(3,1fr);border:1.5px solid var(--line-strong);background:var(--surface)}
+.tz > div{padding:14px 16px;min-width:0;border-top:1.5px solid var(--line-strong)}
+.tz > div:nth-child(-n+3){border-top:0}
+.tz > div:not(:nth-child(3n+1)){border-left:1.5px solid var(--line-strong)}
+.tz .v{font-family:var(--f-display);font-weight:900;font-size:1.9rem;line-height:1;color:var(--accent);margin-top:6px;font-variant-numeric:tabular-nums}
+.tz .d{font-size:.82rem;color:var(--muted);margin-top:4px}
+.local{margin-top:12px;background:var(--invert-bg);color:var(--invert-fg);padding:14px 16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.local b{font-family:var(--f-display);font-weight:900;font-size:1.3rem}
+.local .mono{color:var(--invert-accent)}
+.en{color:var(--muted);font-size:.92rem;margin-top:12px}
+@media (max-width:860px){.reg{grid-template-columns:1fr}}
+@media (max-width:520px){.tz{grid-template-columns:1fr 1fr}.tz > div{border-left:0 !important;border-top:1.5px solid var(--line-strong)}.tz > div:nth-child(-n+2){border-top:0}.tz > div:nth-child(even){border-left:1.5px solid var(--line-strong) !important}.tz > div:nth-child(3){border-top:1.5px solid var(--line-strong)}}
+
+footer{padding-block:28px 40px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){ .btn:hover{transform:none} }
+</style>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#inicio"><i></i>Factor Humano 2026</a>
+    <nav class="nav mono" aria-label="Secciones">
+      <a href="#programa">Programa</a>
+      <a href="#temario">Temario</a>
+      <a href="#elisa">ELISA</a>
+      <a href="#en-linea">En línea</a>
+      <a href="#llegar">Cómo llegar</a>
+      <a class="cta" href="#inscripcion">Inscribirme</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="wrap">
+      <div class="mono eyebrow">Evento de ciberseguridad · Lezama · 26.11.2026</div>
+      <h1>Factor <em>Humano.</em></h1>
+      <p class="deck">Los ataques de hoy empiezan <em>engañando a una persona.</em></p>
+      <canvas id="wave" aria-hidden="true"></canvas>
+      <div class="hero-grid">
+        <p class="lead">Una voz que suena igual a la de un hijo. Un video de un funcionario que nunca existió. Un municipio que pierde sus sistemas en una sola noche. <b>No es el futuro: ya está pasando.</b> Factor Humano reúne a vecinos, autoridades, fuerzas de seguridad e instituciones para entender, con casos reales, las amenazas digitales que hoy nos afectan y qué podemos hacer para cuidarnos.</p>
+        <div>
+          <div class="facts">
+            <div><div class="mono eyebrow">Fecha</div><div class="v">Jueves 26 de noviembre</div></div>
+            <div><div class="mono eyebrow">Horario</div><div class="v">Desde las 18:00 h</div></div>
+            <div><div class="mono eyebrow">Lugar</div><div class="v">Centro Cultural de Lezama</div></div>
+          </div>
+          <div class="count" id="count" aria-live="polite">
+            <div><div class="n" id="cd-d">--</div><div class="l mono">Días</div></div>
+            <div><div class="n" id="cd-h">--</div><div class="l mono">Horas</div></div>
+            <div><div class="n" id="cd-m">--</div><div class="l mono">Minutos</div></div>
+            <div><div class="n" id="cd-s">--</div><div class="l mono">Segundos</div></div>
+          </div>
+          <div class="count-done" id="count-done" hidden></div>
+          <div class="actions">
+            <a class="btn primary" href="#inscripcion">Inscribirme</a>
+            <a class="btn" href="#en-linea">Seguirlo en línea</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="programa">
+    <div class="wrap">
+      <div class="s-head">
+        <div><div class="mono eyebrow">Programa</div><h2>Una tarde, <em>cuatro momentos.</em></h2></div>
+        <p>La recepción abre a las 18:00 con una muestra para recorrer. La conferencia comienza puntual a las 18:30 y, junto con el anuncio especial, se transmite en vivo.</p>
+      </div>
+      <div class="agenda">
+        <div><div class="t">18:00</div><h3>Recepción y muestra</h3><p>Acreditación y recorrido por las cuatro estaciones de la muestra.</p></div>
+        <div class="key"><div class="t">18:30</div><h3>Conferencia</h3><p>“Los ataques de hoy empiezan engañando a una persona”, por Santino Dorado. 40 minutos.</p></div>
+        <div><div class="t">19:10</div><h3>Anuncio especial</h3><p>Una presentación pensada para la comunidad de Lezama. 20 minutos.</p></div>
+        <div><div class="t">19:30</div><h3>Preguntas y networking</h3><p>En el sector aparte, para conversar, resolver dudas y conectar.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="muestra">
+    <div class="wrap">
+      <div class="s-head">
+        <div><div class="mono eyebrow">18:00 · La muestra</div><h2>Antes de entrar, <em>vivilo.</em></h2></div>
+        <p>Cuatro estaciones para ver de cerca lo que se explica en la conferencia. Llegá con tiempo para recorrerlas.</p>
+      </div>
+      <div class="stations">
+        <article class="station"><div class="mono tag">Estación 1</div><h3>Laboratorio de suplantación</h3><p>La misma frase, dicha por una voz real y por una voz generada con inteligencia artificial.</p></article>
+        <article class="station"><div class="mono tag">Estación 2</div><h3>Verificador de mensajes</h3><p>Ejemplos reales de mensajes de estafa y cómo una herramienta de IA detecta sus señales de alerta.</p></article>
+        <article class="station"><div class="mono tag">Estación 3</div><h3>Casos en municipios argentinos</h3><p>Una línea de tiempo con ataques documentados a municipios del país: qué pasó y qué se comprometió.</p></article>
+        <article class="station"><div class="mono tag">Estación 4</div><h3>La muestra ELISA</h3><p>El mapa de las 5 zonas, los carteles originales y el protocolo legal del experimento.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="temario">
+    <div class="wrap">
+      <div class="s-head">
+        <div><div class="mono eyebrow">Temario de la conferencia</div><h2>Cinco amenazas que <em>ya nos alcanzan.</em></h2></div>
+        <p>Casos reales ocurridos en Argentina y recomendaciones concretas de prevención para personas, familias y municipios.</p>
+      </div>
+      <div class="topics">
+        <div class="topic"><div class="n">01</div><div class="c"><h3>Suplantación de identidad con inteligencia artificial</h3><p>Clonación de voz, videollamadas falsas y videos manipulados de figuras públicas. Cómo reconocerlos y cómo protegerse en familia.</p></div></div>
+        <div class="topic"><div class="n">02</div><div class="c"><h3>Violencia digital con IA contra adolescentes</h3><p>Imágenes manipuladas en el ámbito escolar, marco legal vigente (Ley 27.736, Ley Olimpia) y el rol de las familias y las escuelas en la prevención.</p></div></div>
+        <div class="topic"><div class="n">03</div><div class="c"><h3>Estafas virtuales y robo de cuentas</h3><p>Las modalidades más denunciadas en el país: robo de cuentas de WhatsApp, fraude con billeteras virtuales y engaños telefónicos. Medidas de protección inmediatas.</p></div></div>
+        <div class="topic"><div class="n">04</div><div class="c"><h3>Municipios bajo ataque</h3><p>Robo de fondos y secuestro de datos (ransomware) en municipios argentinos. Vulnerabilidades frecuentes en infraestructura, equipos y procesos de la administración local, y buenas prácticas de prevención y respuesta.</p></div></div>
+        <div class="topic"><div class="n">05</div><div class="c"><h3>Sistemas de ayer, amenazas de hoy</h3><p>Filtraciones en organismos públicos, su impacto en los vecinos y los desafíos que plantea la inteligencia artificial para los sistemas de identificación y gestión del Estado.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="anuncio">
+    <div class="wrap">
+      <div class="pair">
+        <div class="panel inv">
+          <div class="mono eyebrow">19:10 · Anuncio especial</div>
+          <h3>Algo para Lezama.</h3>
+          <p>Al cierre de la tarde, una presentación pensada para los vecinos de Lezama. Lo que es, se conoce ese día.</p>
+          <ul>
+            <li>Para toda la comunidad.</li>
+            <li>Se presenta por primera vez el 26 de noviembre.</li>
+            <li>Quedate hasta el final.</li>
+          </ul>
+        </div>
+        <div class="panel" id="elisa">
+          <div class="mono eyebrow">El origen</div>
+          <h3>ELISA · Experimento Lezama de Ingeniería Social Aplicada</h3>
+          <p>¿Cuánto confiamos en algo que no sabemos quién puso? Para responderlo, en septiembre de 2026 se colocaron códigos QR en espacios públicos de Lezama, con aprobación municipal y en cumplimiento de la Ley 25.326.</p>
+          <div class="stats">
+            <div><div class="v">5</div><div class="d">zonas públicas de Lezama</div></div>
+            <div><div class="v">14</div><div class="d">días de experimento</div></div>
+            <div><div class="v">13</div><div class="d">documentos de protocolo legal y ético</div></div>
+          </div>
+          <div class="sealed"><b>El resultado se revela en la conferencia.</b><span class="mono eyebrow">26.11 · 18:30</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="expositor">
+    <div class="wrap">
+      <div class="pair">
+        <div class="panel">
+          <div class="mono eyebrow">Expositor</div>
+          <h3>Santino Dorado</h3>
+          <p>Estudiante de Seguridad Informática e Inteligencia Artificial y Robótica en la Universidad Siglo 21. Vecino de Lezama y creador de ELISA.</p>
+          <p>“No vengo a hablar como un experto que lo sabe todo. Vengo como alguien que se hizo una pregunta y salió a buscar la respuesta.”</p>
+        </div>
+        <div class="panel">
+          <div class="mono eyebrow">Con el acompañamiento de</div>
+          <h3>Subsecretaría de Seguridad y Defensa Civil</h3>
+          <p>Municipalidad de Lezama.</p>
+          <ul>
+            <li>Dirigido a autoridades municipales, secretarías de gobierno y seguridad, fuerzas de seguridad, instituciones y vecinos.</li>
+            <li>Objetivo: concientizar sobre las amenazas digitales actuales y brindar herramientas concretas de prevención.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="en-linea">
+    <div class="wrap">
+      <div class="s-head">
+        <div><div class="mono eyebrow">Transmisión en vivo</div><h2>Desde cualquier lugar, <em>en vivo.</em></h2></div>
+        <p>La conferencia y el anuncio especial se transmiten en vivo de 18:30 a 19:30, hora de Argentina. Inscribite en línea y el enlace te llega por correo el mismo 26 de noviembre. Las preguntas se reciben por el chat de la transmisión.</p>
+      </div>
+      <div class="tz">
+        <div><div class="mono eyebrow">Argentina</div><div class="v">18:30</div><div class="d">Lezama · Buenos Aires</div></div>
+        <div><div class="mono eyebrow">Nueva York · Miami</div><div class="v">16:30</div><div class="d">Hora del Este (ET)</div></div>
+        <div><div class="mono eyebrow">Chicago · Texas</div><div class="v">15:30</div><div class="d">Hora del Centro (CT)</div></div>
+        <div><div class="mono eyebrow">Denver</div><div class="v">14:30</div><div class="d">Hora de la Montaña (MT)</div></div>
+        <div><div class="mono eyebrow">Los Ángeles</div><div class="v">13:30</div><div class="d">Hora del Pacífico (PT)</div></div>
+        <div><div class="mono eyebrow">Madrid</div><div class="v">22:30</div><div class="d">España peninsular</div></div>
+      </div>
+      <div class="local" id="local" hidden><span class="mono">En tu zona horaria</span><b id="local-t"></b></div>
+      <div class="panel" lang="en" style="margin-top:12px">
+        <div class="mono eyebrow">In English · Live subtitles</div>
+        <h3>Watch it with English subtitles.</h3>
+        <p>The talk is in Spanish and streams live on Thursday, November 26. Register online and the link will be emailed to you that day. To follow it in English, open the stream in Google Chrome on a computer and, before it starts:</p>
+        <ul>
+          <li>1 · Go to Chrome Settings › Accessibility.</li>
+          <li>2 · Turn on Live Caption and add Spanish under caption languages.</li>
+          <li>3 · Turn on Live Translate and set “Translate to” English.</li>
+        </ul>
+        <p class="en">Subtitles are generated automatically, so a few words may be off. Questions in English are welcome in the stream chat.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="inscripcion">
+    <div class="wrap">
+      <div class="s-head">
+        <div><div class="mono eyebrow">Inscripción</div><h2>Reservá tu lugar, <em>presencial o en línea.</em></h2></div>
+        <p>Te inscribís en un minuto y recibís la confirmación por correo con tu código. Si venís en representación de una autoridad o institución, indicalo en el formulario para organizar la ubicación.</p>
+      </div>
+      <div class="reg">
+        <div class="panel inv">
+          <div class="mono eyebrow">Presencial · Centro Cultural de Lezama</div>
+          <h3>Venir al evento</h3>
+          <ul>
+            <li>Recepción y muestra desde las 18:00. Conferencia 18:30.</li>
+            <li>Inscripción hasta el viernes 20 de noviembre.</li>
+            <li>Podés sumar hasta cuatro acompañantes.</li>
+          </ul>
+          <div class="actions">
+            <a class="btn primary reg-link" data-modo="presencial" href="#confirmar" target="_blank" rel="noopener">Inscribirme presencial</a>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="mono eyebrow">En línea · Transmisión en vivo</div>
+          <h3>Seguirlo desde donde estés</h3>
+          <ul>
+            <li>Conferencia y anuncio especial, de 18:30 a 19:30 (Argentina).</li>
+            <li>El enlace llega por correo el 26 de noviembre.</li>
+            <li>Preguntas por el chat de la transmisión.</li>
+          </ul>
+          <div class="actions">
+            <a class="btn primary reg-link" data-modo="online" href="#confirmar" target="_blank" rel="noopener">Inscribirme en línea</a>
+          </div>
+        </div>
+      </div>
+      <p class="pending" id="reg-pending">El formulario de inscripción se habilita en los próximos días. Mientras tanto, confirmá por correo con los datos de abajo.</p>
+    </div>
+  </section>
+
+  <section class="s" id="confirmar">
+    <div class="wrap">
+      <div class="s-head">
+        <div><div class="mono eyebrow">¿Preferís por correo?</div><h2>También podés confirmar <em>por mail.</em></h2></div>
+        <p>Escribinos con tu nombre, la institución que representás y cuántas personas asisten. Para la asistencia presencial, antes del 20 de noviembre.</p>
+      </div>
+      <div class="confirm">
+        <div class="panel">
+          <div class="mono eyebrow">Por correo electrónico</div>
+          <div class="email" id="email">confirmaciones.factorhumano2026@gmail.com</div>
+          <div class="deadline">Hasta el viernes 20 de noviembre</div>
+          <div class="actions">
+            <button class="btn primary" id="copy-email" type="button">Copiar correo</button><span class="copy-ok" id="copy-email-ok" hidden>Copiado</span>
+          </div>
+          <div class="consult"><span class="mono">Consultas</span><b id="phone">2241 49-9954</b><button class="btn" id="copy-phone" type="button">Copiar número</button><span class="copy-ok" id="copy-phone-ok" hidden>Copiado</span></div>
+        </div>
+        <div class="panel inv">
+          <div class="mono eyebrow">Mensaje sugerido</div>
+          <p class="subject">Asunto: <span id="subj">Confirmación de asistencia · Factor Humano 2026</span></p>
+          <p id="msg" style="color:var(--invert-fg);font-size:1.02rem">Hola, confirmo mi asistencia a Factor Humano 2026 el jueves 26 de noviembre. Nombre: … Institución y cargo: … Cantidad de personas: …</p>
+          <div class="actions"><button class="btn" id="copy-msg" type="button" style="color:var(--invert-fg);border-color:var(--invert-fg)">Copiar mensaje</button><span class="copy-ok" id="copy-msg-ok" hidden style="color:var(--invert-accent)">Copiado</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="llegar">
+    <div class="wrap">
+      <div class="pair">
+        <div class="panel">
+          <div class="mono eyebrow">Cómo llegar</div>
+          <h3>Centro Cultural de Lezama</h3>
+          <p id="addr" style="font-size:1.1rem;color:var(--ink)">Av. Manuel José Cobo 241, B7116 Lezama, Provincia de Buenos Aires</p>
+          <div class="actions">
+            <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Av.+Manuel+Jos%C3%A9+Cobo+241%2C+Lezama%2C+Buenos+Aires" target="_blank" rel="noopener">Abrir en Google Maps</a>
+            <button class="btn" id="copy-addr" type="button">Copiar dirección</button><span class="copy-ok" id="copy-addr-ok" hidden>Copiado</span>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="mono eyebrow">Después del evento</div>
+          <h3>Material para llevar</h3>
+          <p>Después del 26 de noviembre vas a encontrar acá la guía de prevención y los certificados de asistencia.</p>
+          <ul><li>Guía de prevención para familias</li><li>Certificado de asistencia</li><li>Fotos del evento</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap mono">
+    <span>Factor Humano 2026 · Evento de ciberseguridad</span>
+    <span>Lezama · Provincia de Buenos Aires</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // ============================================================
+  // Enlace del formulario de inscripción (Apps Script, termina en /exec).
+  // Mientras esté vacío, los botones llevan a la confirmación por correo.
+  var INSCRIPCION_URL = "";
+  // ============================================================
+  if (INSCRIPCION_URL){
+    document.querySelectorAll(".reg-link").forEach(function(a){
+      a.href = INSCRIPCION_URL + (a.dataset.modo === "online" ? "?modo=online" : "");
+    });
+    document.getElementById("reg-pending").hidden = true;
+  } else {
+    document.querySelectorAll(".reg-link").forEach(function(a){ a.removeAttribute("target"); a.removeAttribute("rel"); });
+  }
+
+  // Hora de la conferencia en la zona del visitante (si no está en Argentina)
+  try {
+    var start = new Date("2026-11-26T18:30:00-03:00");
+    var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+    var off = -start.getTimezoneOffset();
+    if (off !== -180){
+      var t = new Intl.DateTimeFormat("es", {weekday:"long", day:"numeric", month:"long", hour:"2-digit", minute:"2-digit"}).format(start);
+      document.getElementById("local-t").textContent = t + (tz ? " · " + tz.replace(/_/g," ") : "");
+      document.getElementById("local").hidden = false;
+    }
+  } catch(e){}
+
+  // Cuenta regresiva al 26/11/2026 18:00 (hora de Argentina, UTC-3)
+  var target = Date.parse("2026-11-26T18:00:00-03:00"), end = Date.parse("2026-11-26T21:00:00-03:00");
+  var box = document.getElementById("count"), done = document.getElementById("count-done");
+  function pad(n){ return String(n).padStart(2,"0"); }
+  function tick(){
+    var now = Date.now(), diff = target - now;
+    if (diff <= 0){
+      box.hidden = true; done.hidden = false;
+      done.textContent = now < end ? "Factor Humano está en curso en el Centro Cultural de Lezama. Si te inscribiste en línea, el enlace está en tu correo." : "Gracias por ser parte de Factor Humano 2026.";
+      return;
+    }
+    var sec = Math.floor(diff/1000), m = Math.floor(sec/60);
+    document.getElementById("cd-d").textContent = pad(Math.floor(m/1440));
+    document.getElementById("cd-h").textContent = pad(Math.floor((m%1440)/60));
+    document.getElementById("cd-m").textContent = pad(m%60);
+    document.getElementById("cd-s").textContent = pad(sec%60);
+  }
+  tick(); setInterval(tick, 1000);
+
+  // Copiar
+  function copy(btnId, text, okId){
+    var b = document.getElementById(btnId), ok = document.getElementById(okId);
+    b.addEventListener("click", function(){
+      function show(){ ok.hidden = false; setTimeout(function(){ ok.hidden = true; }, 1800); }
+      try {
+        navigator.clipboard.writeText(text).then(show, function(){ select(text); });
+      } catch(e){ select(text); }
+    });
+  }
+  function select(text){
+    var el = Array.prototype.find.call(document.querySelectorAll("#phone,#addr,#msg,#email"), function(n){ return n.textContent.trim() === text; });
+    if (!el) return;
+    var r = document.createRange(); r.selectNodeContents(el);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+  copy("copy-phone", document.getElementById("phone").textContent.trim(), "copy-phone-ok");
+  copy("copy-email", document.getElementById("email").textContent.trim(), "copy-email-ok");
+  copy("copy-addr", document.getElementById("addr").textContent.trim(), "copy-addr-ok");
+  copy("copy-msg", document.getElementById("msg").textContent.trim(), "copy-msg-ok");
+
+  // Onda de voz: mitad izquierda "real" (tinta), mitad derecha "generada" (acento)
+  var cv = document.getElementById("wave"), ctx = cv.getContext("2d");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var N = 140, seeds = [];
+  for (var i=0;i<N;i++) seeds.push(Math.random());
+  function draw(t){
+    var w = cv.clientWidth, h = cv.clientHeight, dpr = window.devicePixelRatio || 1;
+    if (cv.width !== Math.round(w*dpr)){ cv.width = Math.round(w*dpr); cv.height = Math.round(h*dpr); }
+    ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,w,h);
+    var cs = getComputedStyle(document.documentElement);
+    var ink = cs.getPropertyValue("--ink").trim(), acc = cs.getPropertyValue("--accent").trim();
+    var bw = w/N;
+    for (var i=0;i<N;i++){
+      var x = i/N, env = Math.sin(Math.PI*x)*.85+.15;
+      var wob = reduce ? 0 : Math.sin(t/650 + i*.42)*.18;
+      var bh = Math.max(3, (.3 + .7*seeds[i] + wob) * env * h);
+      ctx.globalAlpha = x < .55 ? (.28 + .5*x) : .95;
+      ctx.fillStyle = x < .55 ? ink : acc;
+      ctx.fillRect(i*bw + bw*.25, (h-bh)/2, Math.max(1, bw*.5), bh);
+    }
+    ctx.globalAlpha = 1;
+    if (!reduce) requestAnimationFrame(draw);
+  }
+  requestAnimationFrame(draw);
+  window.addEventListener("resize", function(){ if (reduce) requestAnimationFrame(draw); });
+})();
+</script>
+
+</html>
