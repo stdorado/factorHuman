@@ -3,13 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Factor Humano 2026 · Evento de ciberseguridad. Jueves 26 de noviembre, Centro Cultural de Lezama. Presencial y en vivo.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Factor Humano 2026 · Lezama">
-<meta property="og:description" content="Los ataques de hoy empiezan engañando a una persona. Jueves 26 de noviembre, 18:00 h, Centro Cultural de Lezama. También en vivo.">
-<meta property="og:image" content="/og.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/favicon.png">
 <title>Factor Humano 2026</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -220,6 +213,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
           <div class="count-done" id="count-done" hidden></div>
           <div class="actions">
             <a class="btn primary" href="#inscripcion">Inscribirme</a>
+            <a class="btn" href="#en-linea">Seguirlo en línea</a>
           </div>
         </div>
       </div>
@@ -401,6 +395,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
           <div class="actions">
             <button class="btn primary" id="copy-email" type="button">Copiar correo</button><span class="copy-ok" id="copy-email-ok" hidden>Copiado</span>
           </div>
+          <div class="consult"><span class="mono">Consultas</span><b id="phone">2241 49-9954</b><button class="btn" id="copy-phone" type="button">Copiar número</button><span class="copy-ok" id="copy-phone-ok" hidden>Copiado</span></div>
         </div>
         <div class="panel inv">
           <div class="mono eyebrow">Mensaje sugerido</div>
@@ -447,7 +442,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   // ============================================================
   // Enlace del formulario de inscripción (Apps Script, termina en /exec).
   // Mientras esté vacío, los botones llevan a la confirmación por correo.
-  var INSCRIPCION_URL = "";
+  var INSCRIPCION_URL = "https://script.google.com/macros/s/AKfycbwFPgKrNFoLdYdhrGVB_7uNa3p0Y36VeSKCtWB8vDkyRfAH1E_X51ivl1sVSC74jClviw/exec";
   // ============================================================
   if (INSCRIPCION_URL){
     document.querySelectorAll(".reg-link").forEach(function(a){
